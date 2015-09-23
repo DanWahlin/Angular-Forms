@@ -1,0 +1,30 @@
+<div class="container">
+	<h1>Model Driven Form</h1>
+    <form (ng-submit)="onSubmit()" #f="form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" ng-control="name" [(ng-model)]="model.name" required>
+        <show-error control="name" [errors]="['required']"></show-error>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo" ng-control="alterEgo" [(ng-model)]="model.alterEgo" required>
+        <show-error control="alterEgo" [errors]="['required']"></show-error>
+      </div>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power" ng-control="power" [(ng-model)]="model.power" required>
+          <option *ng-for="#p of powers" [value]="p">{{p}}</option>
+        </select>
+        <show-error control="power" [errors]="['required']"></show-error>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button>
+    </form>    
+    <div class="container" [hidden]="!submittedModel.id">
+      <h3>Form Output</h3>
+      <div class="row">
+        <div class="col-md-6">Name</div>
+        <div class="col-md-6">{{ submittedModel.name }}</div>
+      </div>
+    </div>
+</div>

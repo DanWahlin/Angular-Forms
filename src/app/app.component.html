@@ -1,0 +1,17 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a href="//angular.io" target="_blank"><img src="images/angular.png" class="logo" /></a>
+    </div>
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a [router-link]="['/templateForm']">Template Driven Form</a></li>
+          <li><a [router-link]="['/modelForm']">Model Driven Form</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br />
+  <router-outlet></router-outlet>
+</div>
