@@ -7,3 +7,11 @@ form {
 	margin-left: 20px;
 	margin-right: 20px;
 }
+
+/* Bootstrap overrides */
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover {
+    background-color: transparent;
+}

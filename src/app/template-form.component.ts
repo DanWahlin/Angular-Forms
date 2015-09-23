@@ -3,11 +3,11 @@ import {
   NgFor,
   Component,
   Directive,
+  NgControl,
   View,
   Host,
   Binding,
   FORM_DIRECTIVES,
-  NgControl,
   Validators,
   NgForm,
 } from 'angular2/angular2';
@@ -67,7 +67,7 @@ class ShowError {
   }
 
   private _errorMessage(code: string): string {
-    var config: any = {'required': this.controlPath + ' is required', 'invalidCreditCard': 'is invalid credit card number'};
+    var config: any = {'required': this.controlPath + ' is required'};
     return config[code];
   }
 }
@@ -101,7 +101,7 @@ export class TemplateFormComponent {
     this.submittedModel = new Hero({id:0, name:'Not a hero yet'});
   }
   
-  resetForm(): void {
+  showForm(): void {
     this.initSubmittedModel();
   }
 
