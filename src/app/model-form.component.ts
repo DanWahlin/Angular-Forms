@@ -12,27 +12,7 @@ import {
   Host
 } from 'angular2/angular2';
 
-//import {RegExpWrapper, print, isPresent, CONST_EXPR} from 'angular2/src/core/facade/lang';
-
 import { Hero } from './hero';
-
-/**
- * Custom validator.
- */
-// function creditCardValidator(c: any) {
-//   if (isPresent(c.value) && RegExpWrapper.test(/^\d{16}$/g, c.value)) {
-//     return null;
-//   } else {
-//     return {"invalidCreditCard": true};
-//   }
-// }
-
-// const creditCardValidatorBinding =
-//     CONST_EXPR(new Binding(NG_VALIDATORS, {toValue: creditCardValidator, multi: true}));
-
-// @Directive({selector: '[credit-card]', bindings: [creditCardValidatorBinding]})
-// class CreditCardValidator {
-// }
 
 function isPresent(obj: any): boolean {
   return obj !== undefined && obj !== null;
@@ -45,7 +25,8 @@ function isPresent(obj: any): boolean {
   `,
   directives: [NgIf]
 })
-class ShowError {
+//This class requires NgFormModel to be injected versus NgForm (as in show-error.component.ts)
+export class ShowError {
   ngForm: NgFormModel;
   controlPath: string;
   errorTypes: string[];
