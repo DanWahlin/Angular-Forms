@@ -1,5 +1,5 @@
 <div class="container">
-    <div [hidden]="submittedModel.id">
+    <div [hidden]="submitted">
         <h1>Model Driven Form</h1>
         <form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
             <div class="form-group">
@@ -22,19 +22,19 @@
             <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button> 
         </form>  
     </div>
-    <div [hidden]="!submittedModel.id">
+    <div [hidden]="!submitted">
         <h2>You submitted the following:</h2>
         <div class="row">
             <div class="col-md-2">Name</div>
-            <div class="col-md-10 pull-left">{{ submittedModel.name }}</div>
+            <div class="col-md-10 pull-left">{{ form.value.name }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Alter Ego</div>
-            <div class="col-md-10 pull-left">{{ submittedModel.alterEgo }}</div>
+            <div class="col-md-10 pull-left">{{ form.value.alterEgo }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Power</div>
-            <div class="col-md-10 pull-left">{{ submittedModel.power }}</div>
+            <div class="col-md-10 pull-left">{{ form.value.power }}</div>
         </div>
         <br />
         <button class="btn btn-default" (click)="showForm()">Edit</button>

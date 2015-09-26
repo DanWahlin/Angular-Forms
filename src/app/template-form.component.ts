@@ -17,15 +17,11 @@ export class TemplateFormComponent {
   model: Hero;  
   submittedModel: Hero;
   powers: string[];
+  submitted: boolean = false;
   
   constructor() {
-      this.model = new Hero({
-        'id': 18,
-        'name': 'Dr IQ',
-        'alterEgo': 'Chuck Overstreet',
-        'power': 'Really Smart'
-      });
-      
+      this.model = new Hero(18,'Dr IQ', 'Really Smart', 'Chuck Overstreet');
+
       this.powers = ['Really Smart', 'Super Flexible', 
                      'Super Hot', 'Weather Changer'];
                      
@@ -33,7 +29,7 @@ export class TemplateFormComponent {
   }
   
   initSubmittedModel() {
-    this.submittedModel = new Hero({id:0, name:'Not a hero yet'});
+    this.submitted = false;
   }
   
   showForm(): void {
@@ -41,6 +37,6 @@ export class TemplateFormComponent {
   }
 
   onSubmit(): void {
-    this.submittedModel = this.model.clone();
+    this.submitted = true;
   }
 }
