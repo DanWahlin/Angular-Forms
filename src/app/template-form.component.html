@@ -5,13 +5,15 @@
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" ng-control="name" [(ng-model)]="model.name" required>
+        <!-- Canonical syntax for [(ng-model)] can be used if desired:
+        <input type="text" class="form-control" ng-control="name" bindon-ng-model="model.name" required>
+        -->
         <show-error control="name" [errors]="['required']"></show-error>
       </div>
       <div class="form-group">
         <label for="alterEgo">Alter Ego</label>
         <!-- Example of what things look like without [(ng-model)]="model.alterEgo" -->
-        <input type="text" class="form-control" ng-control="alterEgo" [ng-model]="model.alterEgo" (ng-model)="model.alterEgo=$event"
-        required>
+        <input type="text" class="form-control" ng-control="alterEgo" [(ng-model)]="model.alterEgo" required>
         <show-error control="alterEgo" [errors]="['required']"></show-error>
       </div>
       <div class="form-group">
@@ -39,6 +41,6 @@
       <div class="col-md-10 pull-left">{{ model.power }}</div>
     </div>
     <br />
-    <button class="btn btn-default" (click)="showForm()">Edit</button>
+    <button class="btn btn-default" (click)="submitted=false">Edit</button>
   </div>
 </div>

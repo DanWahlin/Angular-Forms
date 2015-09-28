@@ -15,7 +15,6 @@ import { Hero } from './hero';
 })
 export class TemplateFormComponent {
   model: Hero;  
-  submittedModel: Hero;
   powers: string[];
   submitted: boolean = false;
   
@@ -24,19 +23,9 @@ export class TemplateFormComponent {
 
       this.powers = ['Really Smart', 'Super Flexible', 
                      'Super Hot', 'Weather Changer'];
-                     
-      this.initSubmittedModel();
-  }
-  
-  initSubmittedModel() {
-    this.submitted = false;
-  }
-  
-  showForm(): void {
-    this.initSubmittedModel();
   }
 
-  onSubmit(): void {
+  onSubmit() {
     this.submitted = true;
   }
 }

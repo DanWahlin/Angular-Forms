@@ -1,6 +1,5 @@
 import {
   FORM_DIRECTIVES,
-  NgControl,
   Validators,
   NgFormModel,
   FormBuilder,
@@ -71,15 +70,6 @@ export class ModelFormComponent {
         'power':    [this.model.power, Validators.required]
       });
                      
-      this.initSubmittedModel();
-  }
-  
-  initSubmittedModel() {
-    this.submitted = false;
-  }
-  
-  showForm(): void {
-    this.initSubmittedModel();
   }
 
   onSubmit(): void {
