@@ -4,24 +4,27 @@
     <form (ng-submit)="onSubmit()" #f="form">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" ng-control="name" [(ng-model)]="model.name" required>
+        <input type="text" class="form-control" ng-control="name" #name="form" [(ng-model)]="model.name" required>
         <!-- Canonical syntax for [(ng-model)] can be used if desired:
         <input type="text" class="form-control" ng-control="name" bindon-ng-model="model.name" required>
-        -->
+        
+        Example of using a custom directive to show/hide error messages:
         <show-error control="name" [errors]="['required']"></show-error>
+        -->
+        <div class="alert alert-danger" [hidden]="name.control?.valid">Name is required</div>
       </div>
       <div class="form-group">
         <label for="alterEgo">Alter Ego</label>
         <!-- Example of what things look like without [(ng-model)]="model.alterEgo" -->
-        <input type="text" class="form-control" ng-control="alterEgo" [(ng-model)]="model.alterEgo" required>
-        <show-error control="alterEgo" [errors]="['required']"></show-error>
+        <input type="text" class="form-control" ng-control="alterEgo" #alterego="form" [(ng-model)]="model.alterEgo" required>
+        <div class="alert alert-danger" [hidden]="alterego.control?.valid">Alter Ego is required</div>
       </div>
       <div class="form-group">
         <label for="power">Hero Power</label>
-        <select class="form-control" ng-control="power" [(ng-model)]="model.power" required>
+        <select class="form-control" ng-control="power" #power="form" [(ng-model)]="model.power" required>
           <option *ng-for="#p of powers" [value]="p">{{p}}</option>
         </select>
-        <show-error control="power" [errors]="['required']"></show-error>
+        <div class="alert alert-danger" [hidden]="power.control?.valid">Power is required</div>
       </div>
       <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button>
     </form>
