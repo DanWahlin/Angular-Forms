@@ -12,6 +12,7 @@
         <show-error control="name" [errors]="['required']"></show-error>
         -->
         <div class="alert alert-danger" [hidden]="name.control?.valid">Name is required</div>
+        {{ name.control?.pristine }}
       </div>
       <div class="form-group">
         <label for="alterEgo">Alter Ego</label>
