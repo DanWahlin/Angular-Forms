@@ -12,11 +12,14 @@
         <show-error control="name" [errors]="['required']"></show-error>
         -->
         <div class="alert alert-danger" [hidden]="name.control?.valid">Name is required</div>
-        {{ name.control?.pristine }}
       </div>
       <div class="form-group">
         <label for="alterEgo">Alter Ego</label>
-        <!-- Example of what things look like without [(ng-model)]="model.alterEgo" -->
+        <!-- 
+          Example of what things look like without [(ng-model)]="model.alterEgo" 
+          
+          <input type="text" ng-control="alterEgo" [ng-model]="model.alterEgo" (ng-model)="model.alterEgo=$event" required>
+        -->
         <input type="text" class="form-control" ng-control="alterEgo" #alterego="form" [(ng-model)]="model.alterEgo" required>
         <div class="alert alert-danger" [hidden]="alterego.control?.valid">Alter Ego is required</div>
       </div>
