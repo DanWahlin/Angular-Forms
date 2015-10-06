@@ -9,7 +9,7 @@ import { ModelFormComponent } from './model-form.component'
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  { path: '/',              as: 'templateForm',  component: TemplateFormComponent },
-  { path: '/modelForm',     as: 'modelForm',     component: ModelFormComponent    }
+  { path: '/',              as: 'TemplateForm',  component: TemplateFormComponent },
+  { path: '/modelform',     as: 'ModelForm',     component: ModelFormComponent    }
 ])
 export class AppComponent { }

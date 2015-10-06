@@ -20,9 +20,9 @@ export class TemplateFormComponent {
   submitted: boolean = false;
   
   constructor() {
-      this.model = new Hero(18, 'Dr IQ', 'Really Smart', 'Chuck Overstreet');
+      this.model = new Hero(18, 'Tornado', 'Turbulent Breeze', 'Willie Wind');
 
-      this.powers = ['Really Smart', 'Super Flexible', 
+      this.powers = ['Really Smart', 'Turbulent Breeze', 
                      'Super Hot', 'Weather Changer'];
   }
 

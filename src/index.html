@@ -5,14 +5,10 @@
   <base href="/src/"/>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
-  <script src="../node_modules/traceur/bin/traceur-runtime.js"></script>
-  <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="../node_modules/angular2/bundles/router.dev.js"></script>
 </head>
 
 <body>
-  <app></app>
+  <app>Loading...</app>
   
   <div id="footer">
     <div class="navbar navbar-fixed-bottom">
@@ -30,6 +26,9 @@
     </div>
   </div>
 
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/angular2/bundles/router.dev.js"></script>
   <script src="config.js"></script>
   <script>
     System.import('app/bootstrap').catch(console.log.bind(console));

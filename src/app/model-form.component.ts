@@ -65,9 +65,9 @@ export class ModelFormComponent {
                      'Hypersound', 'Weather Changer'];                     
                      
       this.form = fb.group({
-        'name':     [this.model.name, Validators.required],
-        'alterEgo': [this.model.alterEgo, Validators.required],
-        'power':    [this.model.power, Validators.required]
+        name:     [this.model.name, Validators.required],
+        alterEgo: [this.model.alterEgo, Validators.required],
+        power:    [this.model.power, Validators.required]
       });
                      
   }
