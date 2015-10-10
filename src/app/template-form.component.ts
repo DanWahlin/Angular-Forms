@@ -8,11 +8,10 @@ import {
 //import { ShowError } from './show-error.component';
 import { Hero } from './hero';
 
-@Component({selector: 'template-driven-form'})
-@View({
+@Component({
+  selector: 'template-driven-form',
   templateUrl: 'app/template-form.component.html',
   directives: [FORM_DIRECTIVES, NgFor]
-  //directives: [FORM_DIRECTIVES, NgFor, ShowError]
 })
 export class TemplateFormComponent {
   model: Hero;  

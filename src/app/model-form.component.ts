@@ -47,8 +47,8 @@ export class ShowError {
 }
 
 
-@Component({selector: 'model-driven-form'})
-@View({
+@Component({
+  selector: 'model-driven-form',
   templateUrl: 'app/model-form.component.html',
   directives: [FORM_DIRECTIVES, NgFor, ShowError]
 })

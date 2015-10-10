@@ -5,19 +5,19 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" #name="form" ng-control="name" required>
-                <div class="alert alert-danger" [hidden]="name.control?.valid">Name is required</div>
+                <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
             </div>
             <div class="form-group">
                 <label for="alterEgo">Alter Ego</label>
                 <input type="text" class="form-control" #alterego="form" ng-control="alterEgo" required>
-                <div class="alert alert-danger" [hidden]="alterego.control?.valid">Alter Ego is required</div>
+                <div class="alert alert-danger" [hidden]="alterego.valid">Alter Ego is required</div>
             </div>
             <div class="form-group">
                 <label for="power">Hero Power</label>
                 <select class="form-control" #power="form" ng-control="power" required>
                 <option *ng-for="#p of powers" [value]="p">{{p}}</option>
                 </select>
-                <div class="alert alert-danger" [hidden]="power.control?.valid">Power is required</div>
+                <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
             </div>
             <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button> 
         </form>  
