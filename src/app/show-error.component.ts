@@ -1,5 +1,6 @@
 import {
   FORM_DIRECTIVES,
+  AbstractControl,
   NgForm,
   FormBuilder,
   NgIf,
@@ -27,7 +28,7 @@ export class ShowError {
   }
 
   get errorMessage(): string {
-    var control: ng.AbstractControl = this.ngForm.form.find(this.controlPath);
+    var control: AbstractControl = this.ngForm.form.find(this.controlPath);
     if (control !== undefined && control !== null && control.touched) {
       for (let errorType of this.errorTypes) {
         if (control.hasError(errorType)) {

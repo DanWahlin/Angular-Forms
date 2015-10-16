@@ -1,5 +1,7 @@
 import {
   FORM_DIRECTIVES,
+  AbstractControl,
+  ControlGroup,
   Validators,
   NgFormModel,
   FormBuilder,
@@ -30,7 +32,7 @@ export class ShowError {
   constructor(@Host() ngForm: NgFormModel) { this.ngForm = ngForm; }
 
   get errorMessage(): string {
-    var control: ng.AbstractControl = this.ngForm.form.find(this.controlPath);
+    var control: AbstractControl = this.ngForm.form.find(this.controlPath);
     if (control !== undefined && control !== null && control.touched) {
       for (let errorType of this.errorTypes) {
         if (control.hasError(errorType)) {
@@ -53,7 +55,7 @@ export class ShowError {
   directives: [FORM_DIRECTIVES, NgFor, ShowError]
 })
 export class ModelFormComponent {
-  form: ng.ControlGroup;
+  form: ControlGroup;
   model: Hero;  
   powers: string[];
   submitted: boolean = false;
