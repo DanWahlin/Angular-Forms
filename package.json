@@ -2,8 +2,6 @@
   "name": "angular2-forms",
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "npm run tsd",
-    "tsd": "tsd link --config src/tsd.json && tsd reinstall -r -o --config src/tsd.json",
     "tsc": "tsc --project src --watch",
     "start": "live-server --open=src"
   },
