@@ -10,8 +10,9 @@ import {
 } from 'angular2/angular2';
 
 //Example usage: <show-error control="name" [errors]="['required']"></show-error>
-@Component({selector: 'show-error', properties: ['controlPath: control', 'errorTypes: errors']})
-@View({
+@Component({
+  selector: 'show-error', 
+  inputs: ['controlPath: control', 'errorTypes: errors'],
   template: `
     <div class="alert alert-danger" *ng-if="errorMessage !== null">{{errorMessage}}</div>
   `,

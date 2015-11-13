@@ -15,8 +15,9 @@ import {
 
 import { Hero } from './hero';
 
-@Component({selector: 'show-error', properties: ['controlPath: control', 'errorTypes: errors']})
-@View({
+@Component({
+  selector: 'show-error', 
+  inputs: ['controlPath: control', 'errorTypes: errors'],
   template: `
     <div class="alert alert-danger" *ng-if="errorMessage !== null">{{errorMessage}}</div>
   `,
