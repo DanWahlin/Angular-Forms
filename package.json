@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
-    "systemjs": "^0.19.5"
+    "systemjs": "^0.19.5",
+    "typescript": "^1.6.2"
   }
 }
