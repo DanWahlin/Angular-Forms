@@ -1,24 +1,21 @@
-import {
-  NgFor,
-  Component,
-  View,
-  FORM_DIRECTIVES,
-} from 'angular2/angular2';
+import { Component, OnInit } from 'angular2/core';
 
 //import { ShowError } from './show-error.component';
-import { Hero } from './hero';
+import { Hero } from '../shared/hero';
 
 @Component({
   selector: 'template-driven-form',
-  templateUrl: 'app/template-form.component.html',
-  directives: [FORM_DIRECTIVES, NgFor]
+  templateUrl: 'app/templateForm/template-form.component.html'
 })
-export class TemplateFormComponent {
+export class TemplateFormComponent implements OnInit{
   model: Hero;  
   powers: string[];
   submitted: boolean = false;
   
   constructor() {
+  }
+  
+  ngOnInit() {
       this.model = new Hero(18, 'Tornado', 'Turbulent Breeze', 'Willie Wind');
 
       this.powers = ['Really Smart', 'Turbulent Breeze', 

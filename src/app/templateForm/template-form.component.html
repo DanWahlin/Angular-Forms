@@ -1,12 +1,12 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Template Driven Form</h1>
-    <form (ng-submit)="onSubmit()" #f="form">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" ng-control="name" #name="form" [(ng-model)]="model.name" required>
-        <!-- Canonical syntax for [(ng-model)] can be used if desired:
-        <input type="text" class="form-control" ng-control="name" bindon-ng-model="model.name" required>
+        <input type="text" class="form-control" ngControl="name" #name="ngForm" [(ngModel)]="model.name" required>
+        <!-- Canonical syntax for [(ngModel)] can be used if desired:
+        <input type="text" class="form-control" ngControl="name" bindon-ngModel="model.name" required>
         
         Example of using a custom directive to show/hide error messages:
         <show-error control="name" [errors]="['required']"></show-error>
@@ -16,21 +16,21 @@
       <div class="form-group">
         <label for="alterEgo">Alter Ego</label>
         <!-- 
-          Example of what things look like without [(ng-model)]="model.alterEgo" 
+          Example of what things look like without [(ngModel)]="model.alterEgo" 
           
-          <input type="text" ng-control="alterEgo" [ng-model]="model.alterEgo" (ng-model)="model.alterEgo=$event" required>
+          <input type="text" ngControl="alterEgo" [ngModel]="model.alterEgo" (ngModel)="model.alterEgo=$event" required>
         -->
-        <input type="text" class="form-control" ng-control="alterEgo" #alterego="form" [(ng-model)]="model.alterEgo" required>
+        <input type="text" class="form-control" ngControl="alterEgo" #alterego="ngForm" [(ngModel)]="model.alterEgo" required>
         <div class="alert alert-danger" [hidden]="alterego.valid">Alter Ego is required</div>
       </div>
       <div class="form-group">
         <label for="power">Hero Power</label>
-        <select class="form-control" ng-control="power" #power="form" [(ng-model)]="model.power" required>
-          <option *ng-for="#p of powers" [value]="p">{{p}}</option>
+        <select class="form-control" ngControl="power" #power="ngForm" [(ngModel)]="model.power" required>
+          <option *ngFor="#p of powers" [value]="p">{{p}}</option>
         </select>
         <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
       </div>
-      <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button>
+      <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
     </form>
   </div>
   <div [hidden]="!submitted">

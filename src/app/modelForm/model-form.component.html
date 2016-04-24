@@ -1,25 +1,25 @@
 <div class="container">
     <div [hidden]="submitted">
         <h1>Model Driven Form</h1>
-        <form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
+        <form (ngSubmit)="onSubmit()" [ngFormModel]="form" #heroForm="ngForm">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" #name="form" ng-control="name" required>
+                <input type="text" class="form-control" #name="ngForm" ngControl="name" required>
                 <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
             </div>
             <div class="form-group">
                 <label for="alterEgo">Alter Ego</label>
-                <input type="text" class="form-control" #alterego="form" ng-control="alterEgo" required>
+                <input type="text" class="form-control" #alterego="ngForm" ngControl="alterEgo" required>
                 <div class="alert alert-danger" [hidden]="alterego.valid">Alter Ego is required</div>
             </div>
             <div class="form-group">
                 <label for="power">Hero Power</label>
-                <select class="form-control" #power="form" ng-control="power" required>
-                <option *ng-for="#p of powers" [value]="p">{{p}}</option>
+                <select class="form-control" #power="ngForm" ngControl="power" required>
+                <option *ngFor="#p of powers" [value]="p">{{p}}</option>
                 </select>
                 <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
             </div>
-            <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button> 
+            <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button> 
         </form>  
     </div>
     <div [hidden]="!submitted">

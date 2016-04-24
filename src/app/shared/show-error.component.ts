@@ -1,13 +1,5 @@
-import {
-  FORM_DIRECTIVES,
-  AbstractControl,
-  NgForm,
-  FormBuilder,
-  NgIf,
-  Component,
-  View,
-  Host
-} from 'angular2/angular2';
+import { Component, Host } from 'angular2/core';
+import { NgForm } from 'angular2/common';
 
 //Example usage: <show-error control="name" [errors]="['required']"></show-error>
 @Component({
@@ -15,8 +7,7 @@ import {
   inputs: ['controlPath: control', 'errorTypes: errors'],
   template: `
     <div class="alert alert-danger" *ng-if="errorMessage !== null">{{errorMessage}}</div>
-  `,
-  directives: [NgIf]
+  `
 })
 export class ShowError {
   ngForm: NgForm;
@@ -29,7 +20,7 @@ export class ShowError {
   }
 
   get errorMessage(): string {
-    var control: AbstractControl = this.ngForm.form.find(this.controlPath);
+    var control = this.ngForm.form.find(this.controlPath);
     if (control !== undefined && control !== null && control.touched) {
       for (let errorType of this.errorTypes) {
         if (control.hasError(errorType)) {

@@ -1,15 +1,18 @@
-import {View, Component} from 'angular2/angular2';
-import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
-import { TemplateFormComponent } from './template-form.component';
-import { ModelFormComponent } from './model-form.component'
+import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
-@Component({ selector: 'app' })
-@View({
+import { APP_PROVIDERS } from './app.providers';
+import { TemplateFormComponent } from './templateForm/template-form.component';
+import { ModelFormComponent } from './modelForm/model-form.component'
+
+@Component({ 
+  selector: 'app-container',
   templateUrl: 'app/app.component.html',
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES],
+  providers: APP_PROVIDERS
 })
 @RouteConfig([
-  { path: '/',              as: 'TemplateForm',  component: TemplateFormComponent },
-  { path: '/modelform',     as: 'ModelForm',     component: ModelFormComponent    }
+  { path: '/templateform',  name: 'TemplateForm',  component: TemplateFormComponent, useAsDefault: true },
+  { path: '/modelform',     name: 'ModelForm',     component: ModelFormComponent    }
 ])
 export class AppComponent { }

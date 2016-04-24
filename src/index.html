@@ -1,38 +1,66 @@
+<!--
+   Angular 2 Forms
+   Dan Wahlin
+
+   @DanWahlin
+   http://blog.codewithdan.com
+   http://github.com/danwahlin
+-->
 <!DOCTYPE html>
 <html>
-
 <head>
-  <base href="/src/"/>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <base href="/src/">
+    <title>Angular 2 Forms</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Angular 2 Bare Bones Starter">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
 </head>
-
 <body>
-  <app>Loading...</app>
-  
-  <div id="footer">
-    <div class="navbar navbar-fixed-bottom">
-      <div class="navbar-inner footer">
-          <div class="container">
-              <footer>
-                  <div class="row">
-                      <div class="col-md-12">
-                          Created by <a href="http://twitter.com/DanWahlin" target="_blank">Dan Wahlin</a>
-                      </div>
-                  </div>
-              </footer>
-          </div>
-      </div>
+    <div class="container">
+        <app-container>
+            Loading...
+        </app-container>
+        <br /><br />
     </div>
-  </div>
 
-  <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="../node_modules/angular2/bundles/router.dev.js"></script>
-  <script src="config.js"></script>
+    <footer>
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner footer">
+                <div class="container">
+                    <footer>
+                        <a href="http://twitter.com/danwahlin">Created by @DanWahlin</a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+   <!-- Required polyfills (order matters) -->
+   <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+   <script src="/node_modules/systemjs/dist/system-polyfills.js"></script>
+   <script src="/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+   
+   <script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+   <script src="/node_modules/systemjs/dist/system.src.js"></script>
+   <script src="/node_modules/rxjs/bundles/Rx.js"></script>
+   <script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+   <script src="/node_modules/angular2/bundles/http.dev.js"></script>
+   <script src="/node_modules/angular2/bundles/router.dev.js"></script>
+   
   <script>
-    System.import('app/bootstrap').catch(console.log.bind(console));
+    System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+    System.import('app/main')
+          .then(null, console.error.bind(console));
   </script>
 </body>
-
 </html>
