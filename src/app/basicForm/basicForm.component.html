@@ -37,6 +37,10 @@
       <div class="col-md-10 pull-left">{{ form.power }}</div>
     </div>
     <br />
+    Raw output from form.value:
+    <br />
+    {{ form | json }}
+    <br /><br />
     <button class="btn btn-default" (click)="submitted=false">Edit</button>
   </div>
 </div>
