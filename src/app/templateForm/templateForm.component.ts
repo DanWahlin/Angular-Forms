@@ -1,19 +1,18 @@
 import { Component, OnInit } from 'angular2/core';
 
-//import { ShowError } from './show-error.component';
+//import { ShowError } from './showError.component';
 import { Hero } from '../shared/hero';
 
 @Component({
   selector: 'template-driven-form',
-  templateUrl: 'app/templateForm/template-form.component.html'
+  templateUrl: 'app/templateForm/templateForm.component.html'
 })
-export class TemplateFormComponent implements OnInit{
+export class TemplateFormComponent implements OnInit {
   model: Hero;  
   powers: string[];
   submitted: boolean = false;
   
-  constructor() {
-  }
+  constructor() { }
   
   ngOnInit() {
       this.model = new Hero(18, 'Tornado', 'Turbulent Breeze', 'Willie Wind');

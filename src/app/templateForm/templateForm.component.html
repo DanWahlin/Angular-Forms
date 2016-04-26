@@ -1,5 +1,5 @@
 <div class="container">
-  <div [hidden]="submitted">
+  <div *ngIf="!submitted">
     <h1>Template Driven Form</h1>
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div class="form-group">
@@ -20,20 +20,20 @@
           
           <input type="text" ngControl="alterEgo" [ngModel]="model.alterEgo" (ngModel)="model.alterEgo=$event" required>
         -->
-        <input type="text" class="form-control" ngControl="alterEgo" #alterego="ngForm" [(ngModel)]="model.alterEgo" required>
-        <div class="alert alert-danger" [hidden]="alterego.valid">Alter Ego is required</div>
+        <input type="text" class="form-control" ngControl="alterEgo" #alterEgo="ngForm" [(ngModel)]="model.alterEgo" required>
+        <div class="alert alert-danger" [hidden]="alterEgo.valid">Alter Ego is required</div>
       </div>
       <div class="form-group">
         <label for="power">Hero Power</label>
         <select class="form-control" ngControl="power" #power="ngForm" [(ngModel)]="model.power" required>
-          <option *ngFor="#p of powers" [value]="p">{{p}}</option>
+          <option *ngFor="#p of powers" [value]="p">{{ p }}</option>
         </select>
         <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
       </div>
       <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
     </form>
   </div>
-  <div [hidden]="!submitted">
+  <div *ngIf="submitted">
     <h2>You submitted the following:</h2>
     <div class="row">
       <div class="col-md-2">Name</div>

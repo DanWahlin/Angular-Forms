@@ -1,0 +1,42 @@
+<div class="container">
+  <div *ngIf="!submitted">
+    <h1>Basic Template Driven Form</h1>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" ngControl="name" #name="ngForm" required>
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" ngControl="alterEgo" #alterEgo="ngForm" required>
+        <div class="alert alert-danger" [hidden]="alterEgo.valid || alterEgo.pristine">Alter Ego is required</div>
+      </div>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" ngControl="power" #power="ngForm" required>
+          <option *ngFor="#p of powers" [value]="p">{{ p }}</option>
+        </select>
+        <div class="alert alert-danger" [hidden]="power.valid || power.pristine">Power is required</div>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-md-2">Name</div>
+      <div class="col-md-10 pull-left">{{ form.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Alter Ego</div>
+      <div class="col-md-10 pull-left">{{ form.alterEgo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Power</div>
+      <div class="col-md-10 pull-left">{{ form.power }}</div>
+    </div>
+    <br />
+    <button class="btn btn-default" (click)="submitted=false">Edit</button>
+  </div>
+</div>

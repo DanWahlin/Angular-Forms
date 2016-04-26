@@ -1,5 +1,5 @@
 <div class="container">
-    <div [hidden]="submitted">
+    <div *ngIf="!submitted">
         <h1>Model Driven Form</h1>
         <form (ngSubmit)="onSubmit()" [ngFormModel]="form" #heroForm="ngForm">
             <div class="form-group">
@@ -22,7 +22,7 @@
             <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button> 
         </form>  
     </div>
-    <div [hidden]="!submitted">
+    <div *ngIf="submitted">
         <h2>You submitted the following:</h2>
         <div class="row">
             <div class="col-md-2">Name</div>

@@ -2,8 +2,9 @@ import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { APP_PROVIDERS } from './app.providers';
-import { TemplateFormComponent } from './templateForm/template-form.component';
-import { ModelFormComponent } from './modelForm/model-form.component'
+import { BasicFormComponent } from './basicForm/basicForm.component';
+import { TemplateFormComponent } from './templateForm/templateForm.component';
+import { ModelFormComponent } from './modelForm/modelForm.component';
 
 @Component({ 
   selector: 'app-container',
@@ -12,7 +13,8 @@ import { ModelFormComponent } from './modelForm/model-form.component'
   providers: APP_PROVIDERS
 })
 @RouteConfig([
-  { path: '/templateform',  name: 'TemplateForm',  component: TemplateFormComponent, useAsDefault: true },
+  { path: '/basicForm',  name: 'BasicForm',  component: BasicFormComponent, useAsDefault: true },
+  { path: '/templateform',  name: 'TemplateForm',  component: TemplateFormComponent },
   { path: '/modelform',     name: 'ModelForm',     component: ModelFormComponent    }
 ])
 export class AppComponent { }

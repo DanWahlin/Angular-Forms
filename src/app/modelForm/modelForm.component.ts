@@ -1,0 +1,36 @@
+import { Component, OnInit, Host } from 'angular2/core';
+import { ControlGroup, NgFormModel, FormBuilder, Validators } from 'angular2/common';
+
+import { ShowModelError } from '../shared/showModelError.component';
+import { Hero } from '../shared/hero';
+
+@Component({
+  selector: 'model-driven-form',
+  templateUrl: 'app/modelForm/modelForm.component.html',
+  directives: [ShowModelError]
+})
+export class ModelFormComponent implements OnInit {
+  form: ControlGroup;
+  model: Hero;  
+  powers: string[];
+  submitted: boolean = false;
+  
+  constructor(private _formBuilder: FormBuilder) { }
+  
+  ngOnInit() {
+      this.model = new Hero(18, 'Dr IQ', 'Really Smart', 'Chuck Overstreet');
+      
+      this.powers = ['Really Smart', 'Super Flexible', 
+                     'Hypersound', 'Weather Changer'];                     
+                     
+      this.form = this._formBuilder.group({
+        name:     [this.model.name, Validators.required],
+        alterEgo: [this.model.alterEgo, Validators.required],
+        power:    [this.model.power, Validators.required]
+      });
+  }
+
+  onSubmit()  {
+    this.submitted = true;
+  }
+}
