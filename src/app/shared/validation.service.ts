@@ -1,4 +1,4 @@
-//Credit: https://coryrylan.com/blog/angular-2-form-builder-and-validation-management
+//Original version created by Cory Rylan: https://coryrylan.com/blog/angular-2-form-builder-and-validation-management
 import { AbstractControl } from 'angular2/common';
 
 export class ValidationService {
