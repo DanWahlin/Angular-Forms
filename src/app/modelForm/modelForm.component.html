@@ -1,26 +1,26 @@
 <div class="container">
     <div *ngIf="!submitted">
         <h1>Model Driven Form</h1>
-        <form (ngSubmit)="onSubmit()" [ngFormModel]="form" #heroForm="ngForm">
+        <form [ngFormModel]="form" (ngSubmit)="onSubmit()" #heroForm="ngForm">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" #name="ngForm" ngControl="name" required>
+                <input type="text" class="form-control" #name="ngForm" ngControl="name" />
                 <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
             </div>
             <div class="form-group">
                 <label for="alterEgo">Alter Ego</label>
-                <input type="text" class="form-control" #alterEgo="ngForm" ngControl="alterEgo" required>
+                <input type="text" class="form-control" #alterEgo="ngForm" ngControl="alterEgo" />
                 <div class="alert alert-danger" [hidden]="alterEgo.valid">Alter Ego is required</div>
             </div>
             <div class="form-group">
                 <label for="email">Hero Email</label>
-                <input type="email" class="form-control" #email="ngForm" ngControl="email" required>
+                <input type="email" class="form-control" #email="ngForm" ngControl="email" />
                 <div class="alert alert-danger" [hidden]="email.valid">Email is required and must be a valid email pattern</div>
             </div>
             <div class="form-group">
                 <label for="power">Hero Power</label>
-                <select class="form-control" #power="ngForm" ngControl="power" required>
-                <option *ngFor="#p of powers" [value]="p">{{p}}</option>
+                <select class="form-control" #power="ngForm" ngControl="power">
+                  <option *ngFor="#p of powers" [value]="p">{{p}}</option>
                 </select>
                 <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
             </div>
