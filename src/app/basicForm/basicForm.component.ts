@@ -1,4 +1,4 @@
-import { Component, OnInit, Host } from 'angular2/core';
+import { Component, OnInit, Host } from '@angular/core';
 
 @Component({
   selector: 'basic-template-driven-form',

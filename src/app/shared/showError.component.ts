@@ -1,5 +1,5 @@
-import { Component, Host } from 'angular2/core';
-import { NgForm } from 'angular2/common';
+import { Component, Host } from '@angular/core';
+import { NgForm } from '@angular/common';
 
 //Example usage: <show-error control="name" [errors]="['required']"></show-error>
 @Component({

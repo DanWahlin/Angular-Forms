@@ -1,7 +1,7 @@
-import { bootstrap } from 'angular2/platform/browser';
-import { bind } from 'angular2/core';
-import { FORM_PROVIDERS } from 'angular2/common';
-import { ROUTER_PROVIDERS } from 'angular2/router';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { bind } from '@angular/core';
+import { FORM_PROVIDERS } from '@angular/common';
+import { ROUTER_PROVIDERS } from '@angular/router';
 import {AppComponent} from './app.component';
 
 bootstrap(AppComponent).then(
