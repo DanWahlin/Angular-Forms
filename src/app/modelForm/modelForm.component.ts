@@ -6,8 +6,9 @@ import { ShowModelError } from '../shared/showModelError.component';
 import { Hero } from '../shared/hero';
 
 @Component({
+  moduleId: __moduleName,
   selector: 'model-driven-form',
-  templateUrl: 'app/modelForm/modelForm.component.html',
+  templateUrl: 'modelForm.component.html',
   directives: [ShowModelError]
 })
 export class ModelFormComponent implements OnInit {
@@ -16,7 +17,7 @@ export class ModelFormComponent implements OnInit {
   powers: string[];
   submitted: boolean = false;
   
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
   
   ngOnInit() {
       this.model = new Hero(18, 'Dr IQ', 'Really Smart', 'Chuck Overstreet', 'iq@superhero.com');
@@ -24,7 +25,7 @@ export class ModelFormComponent implements OnInit {
       this.powers = ['Really Smart', 'Super Flexible', 
                      'Hypersound', 'Weather Changer'];                     
                      
-      this.form = this._formBuilder.group({
+      this.form = this.formBuilder.group({
         name:     [this.model.name, Validators.required],
         alterEgo: [this.model.alterEgo, Validators.required],
         email:    [this.model.email, Validators.compose([Validators.required, ValidationService.emailValidator])],

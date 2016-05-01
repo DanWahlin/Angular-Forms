@@ -1,8 +1,9 @@
 import { Component, OnInit, Host } from '@angular/core';
 
 @Component({
+  moduleId: __moduleName,
   selector: 'basic-template-driven-form',
-  templateUrl: 'app/basicForm/basicForm.component.html'
+  templateUrl: 'basicForm.component.html'
 })
 export class BasicFormComponent implements OnInit {
   form: any;
