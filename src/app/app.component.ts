@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
+import { Routes, Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { APP_PROVIDERS } from './app.providers';
 import { BasicFormComponent } from './basicForm/basicForm.component';
@@ -12,9 +12,15 @@ import { ModelFormComponent } from './modelForm/modelForm.component';
   directives: [ROUTER_DIRECTIVES],
   providers: APP_PROVIDERS
 })
-@RouteConfig([
-  { path: '/basicForm',  name: 'BasicForm',  component: BasicFormComponent, useAsDefault: true },
-  { path: '/templateform',  name: 'TemplateForm',  component: TemplateFormComponent },
-  { path: '/modelform',     name: 'ModelForm',     component: ModelFormComponent    }
+@Routes([
+  { path: '/basicform',  component: BasicFormComponent },
+  { path: '/templateform',  component: TemplateFormComponent },
+  { path: '/modelform',     component: ModelFormComponent    }
 ])
-export class AppComponent { }
+export class AppComponent { 
+  
+  constructor(private router: Router) {
+    this.router.navigate(['basicform']);
+  }
+  
+}
