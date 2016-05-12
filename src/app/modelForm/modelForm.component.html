@@ -31,19 +31,19 @@
         <h2>You submitted the following:</h2>
         <div class="row">
             <div class="col-md-2">Name</div>
-            <div class="col-md-10 pull-left">{{ form.value.name }}</div>
+            <div class="col-md-10 pull-left">{{ formControlGroup.value.name }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Alter Ego</div>
-            <div class="col-md-10 pull-left">{{ form.value.alterEgo }}</div>
+            <div class="col-md-10 pull-left">{{ formControlGroup.value.alterEgo }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Hero Email</div>
-            <div class="col-md-10 pull-left">{{ form.value.email }}</div>
+            <div class="col-md-10 pull-left">{{ formControlGroup.value.email }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Power</div>
-            <div class="col-md-10 pull-left">{{ form.value.power }}</div>
+            <div class="col-md-10 pull-left">{{ formControlGroup.value.power }}</div>
         </div>
         <br />
         <button class="btn btn-default" (click)="submitted=false">Edit</button>
