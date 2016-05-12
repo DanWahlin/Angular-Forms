@@ -1,7 +1,7 @@
 <div class="container">
     <div *ngIf="!submitted">
         <h1>Model Driven Form</h1>
-        <form [ngFormModel]="form" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <form [ngFormModel]="formControlGroup" (ngSubmit)="onSubmit()" #heroForm="ngForm">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" #name="ngForm" ngControl="name" />

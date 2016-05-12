@@ -12,7 +12,7 @@ import { Hero } from '../shared/hero';
   directives: [ShowModelError]
 })
 export class ModelFormComponent implements OnInit {
-  form: ControlGroup;
+  formControlGroup: ControlGroup;
   model: Hero;  
   powers: string[];
   submitted: boolean = false;
@@ -25,7 +25,7 @@ export class ModelFormComponent implements OnInit {
       this.powers = ['Really Smart', 'Super Flexible', 
                      'Hypersound', 'Weather Changer'];                     
                      
-      this.form = this.formBuilder.group({
+      this.formControlGroup = this.formBuilder.group({
         name:     [this.model.name, Validators.required],
         alterEgo: [this.model.alterEgo, Validators.required],
         email:    [this.model.email, Validators.compose([Validators.required, ValidationService.emailValidator])],
