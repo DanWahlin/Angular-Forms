@@ -7,8 +7,9 @@ import { TemplateFormComponent } from './templateForm/templateForm.component';
 import { ModelFormComponent } from './modelForm/modelForm.component';
 
 @Component({ 
+  moduleId: module.id,
   selector: 'app-container',
-  templateUrl: 'app/app.component.html',
+  templateUrl: 'app.component.html',
   directives: [ROUTER_DIRECTIVES],
   providers: APP_PROVIDERS
 })

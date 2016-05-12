@@ -1,7 +1,7 @@
 import { Component, OnInit, Host } from '@angular/core';
 
 @Component({
-  moduleId: __moduleName,
+  moduleId: module.id,
   selector: 'basic-template-driven-form',
   templateUrl: 'basicForm.component.html'
 })

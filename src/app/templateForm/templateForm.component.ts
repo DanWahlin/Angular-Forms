@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../shared/hero';
 
 @Component({
-  moduleId: __moduleName,
+  moduleId: module.id,
   selector: 'template-driven-form',
   templateUrl: 'templateForm.component.html'
 })

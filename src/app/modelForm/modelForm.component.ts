@@ -6,7 +6,7 @@ import { ShowModelError } from '../shared/showModelError.component';
 import { Hero } from '../shared/hero';
 
 @Component({
-  moduleId: __moduleName,
+  moduleId: module.id,
   selector: 'model-driven-form',
   templateUrl: 'modelForm.component.html',
   directives: [ShowModelError]
