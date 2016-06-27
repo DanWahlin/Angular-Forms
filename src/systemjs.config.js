@@ -1,71 +1,45 @@
-(function() {
-	System.config({
-		map: {
-			'rxjs': '/node_modules/rxjs',
-			'@angular': '/node_modules/@angular',
-			'app': 'app' //'dist'
-		},
-		packages: {
-			'app': {
-				main: 'main',
-				defaultExtension: 'js'
-			},
-			'@angular/core': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'@angular/compiler': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'@angular/common': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'@angular/platform-browser': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'@angular/platform-browser-dynamic': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'@angular/http': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'@angular/router': {
-				main: 'index',
-				defaultExtension: 'js'
-			},
-			'rxjs': {
-				defaultExtension: 'js'
-			}
-		}
-	});
-})();
+(function(global) {
 
-/*
-Could use reduce() to minimize duplication but keeping it simple here
-	var packages = [
-			'@angular/core',
-		 	'@angular/compiler',
-			'@angular/common',
-			'@angular/platform-browser',
-			'@angular/platform-browser-dynamic',
-			'@angular/http',
-			'@angular/router'
-	].reduce(function(ngPackage, packageName) {
-	  //ngPackage = {} when it's first called. We then dynamically 
-	  //add packageName to it as a new property & apply the settings
-		//That creates the packages object nice and cleanly
-		ngPackage[packageName] = {
-			main: 'index',
-			defaultExtension: 'js'
-		}
-		return ngPackage;
-	}, {});
-	
-	packages.app = { main: 'main', defaultExtension: 'js'};
-	packages.rxjs = { defaultExtension: 'js' };
-*/
+  // map tells the System loader where to look for things
+  var map = {
+    'app':                        'app', // 'dist',
+    'rxjs':                       'node_modules/rxjs',
+    '@angular':                   'node_modules/@angular'
+  };
+
+  // packages tells the System loader how to load when no filename and/or no extension
+  var packages = {
+    'app':                        { main: 'main.js',  defaultExtension: 'js' },
+    'rxjs':                       { defaultExtension: 'js' }
+  };
+
+  var ngPackageNames = [
+    '@angular/common',
+    '@angular/compiler',
+    '@angular/core',
+    '@angular/http',
+    '@angular/forms',
+    '@angular/platform-browser',
+    '@angular/platform-browser-dynamic',
+    '@angular/router',
+    '@angular/router-deprecated',
+    '@angular/testing',
+    '@angular/upgrade',
+  ];
+
+  // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
+  ngPackageNames.forEach(function(pkgName) {
+    packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
+  });
+
+  var config = {
+    map: map,
+    packages: packages
+  }
+
+  // filterSystemConfig - index.html's chance to modify config before we register it.
+  if (global.filterSystemConfig) { global.filterSystemConfig(config); }
+
+  System.config(config);
+
+})(this);

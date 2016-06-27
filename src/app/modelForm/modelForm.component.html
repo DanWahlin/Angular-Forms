@@ -1,49 +1,50 @@
 <div class="container">
     <div *ngIf="!submitted">
         <h1>Model Driven Form</h1>
-        <form [ngFormModel]="formControlGroup" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" #name="ngForm" ngControl="name" />
-                <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
+                <input type="text" class="form-control" formControlName="name" />
+                <!--<div class="alert alert-danger" [hidden]="heroForm.name.valid">Name is required</div>-->
             </div>
             <div class="form-group">
                 <label for="alterEgo">Alter Ego</label>
-                <input type="text" class="form-control" #alterEgo="ngForm" ngControl="alterEgo" />
-                <div class="alert alert-danger" [hidden]="alterEgo.valid">Alter Ego is required</div>
+                <input type="text" class="form-control" formControlName="alterEgo" />
+                <!--<div class="alert alert-danger" [hidden]="heroForm.alterEgo.valid">Alter Ego is required</div>-->
             </div>
             <div class="form-group">
                 <label for="email">Hero Email</label>
-                <input type="email" class="form-control" #email="ngForm" ngControl="email" />
-                <div class="alert alert-danger" [hidden]="email.valid">Email is required and must be a valid email pattern</div>
+                <input type="email" class="form-control" formControlName="email" />
+                <!--<div class="alert alert-danger" [hidden]="heroForm.email.valid">Email is required and must be a valid email pattern</div>-->
             </div>
             <div class="form-group">
                 <label for="power">Hero Power</label>
-                <select class="form-control" #power="ngForm" ngControl="power">
+                <select class="form-control" formControlName="power">
                   <option *ngFor="let p of powers" [value]="p">{{p}}</option>
                 </select>
-                <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
+                <!--<div class="alert alert-danger" [hidden]="heroForm.power.valid">Power is required</div>-->
             </div>
-            <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button> 
+            <button type="submit" class="btn btn-default" [disabled]="!heroForm.valid">Submit</button> 
         </form>  
     </div>
+                                
     <div *ngIf="submitted">
         <h2>You submitted the following:</h2>
         <div class="row">
             <div class="col-md-2">Name</div>
-            <div class="col-md-10 pull-left">{{ formControlGroup.value.name }}</div>
+            <div class="col-md-10 pull-left">{{ heroForm.name }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Alter Ego</div>
-            <div class="col-md-10 pull-left">{{ formControlGroup.value.alterEgo }}</div>
+            <div class="col-md-10 pull-left">{{ heroForm.alterEgo }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Hero Email</div>
-            <div class="col-md-10 pull-left">{{ formControlGroup.value.email }}</div>
+            <div class="col-md-10 pull-left">{{ heroForm.email }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Power</div>
-            <div class="col-md-10 pull-left">{{ formControlGroup.value.power }}</div>
+            <div class="col-md-10 pull-left">{{ heroForm.power }}</div>
         </div>
         <br />
         <button class="btn btn-default" (click)="submitted=false">Edit</button>
