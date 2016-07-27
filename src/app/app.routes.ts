@@ -4,7 +4,7 @@ import { BasicFormComponent } from './basicForm/basicForm.component';
 import { TemplateFormComponent } from './templateForm/templateForm.component';
 import { ModelFormComponent } from './modelForm/modelForm.component';
 
-const appRoutes: RouterConfig = [
+const APP_ROUTES: RouterConfig = [
   { path: '', pathMatch:'full', redirectTo: '/basicform' },
   { path: 'basicform',  component: BasicFormComponent },
   { path: 'templateform',  component: TemplateFormComponent },
@@ -12,5 +12,5 @@ const appRoutes: RouterConfig = [
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-  provideRouter(appRoutes)
+  provideRouter(APP_ROUTES)
 ];
