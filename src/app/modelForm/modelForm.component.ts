@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ValidationService } from '../shared/validation.service';
 import { Hero } from '../shared/hero';
@@ -7,8 +7,7 @@ import { Hero } from '../shared/hero';
 @Component({
   moduleId: module.id,
   selector: 'model-driven-form',
-  templateUrl: 'modelForm.component.html',
-  directives: [ REACTIVE_FORM_DIRECTIVES ]
+  templateUrl: 'modelForm.component.html'
 })
 export class ModelFormComponent implements OnInit {
   heroForm: FormGroup;

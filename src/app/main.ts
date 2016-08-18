@@ -1,14 +1,6 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+import { enableProdMode } from '@angular/core';
 
-import { APP_ROUTER_PROVIDERS } from './app.routes';
-import { AppComponent } from './app.component';
-
-bootstrap(AppComponent, [ 
-    APP_ROUTER_PROVIDERS,
-    disableDeprecatedForms(),
-    provideForms() 
-]).then(
-    success => console.log('AppComponent bootstrapped!'),
-    error => console.log(error)
-);
+//enableProdMode(); //Uncomment for production
+platformBrowserDynamic().bootstrapModule(AppModule);
