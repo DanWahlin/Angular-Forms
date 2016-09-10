@@ -1,5 +1,5 @@
 import { Component, Host } from '@angular/core';
-import { NgFormModel } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'show-model-error', 
@@ -10,15 +10,15 @@ import { NgFormModel } from '@angular/common';
 })
 //This class requires NgFormModel to be injected versus NgForm (as in show-error.component.ts)
 export class ShowModelError {
-  ngForm: NgFormModel;
+  ngForm: NgForm;
   controlPath: string;
   errorTypes: string[];
   errors: any = {'required': 'This field is required'};
 
-  constructor(@Host() ngForm: NgFormModel) { this.ngForm = ngForm; }
+  constructor(@Host() ngForm: NgForm) { this.ngForm = ngForm; }
 
   get errorMessage(): string {
-    var control = this.ngForm.form.find(this.controlPath);
+    var control = this.ngForm.form.get(this.controlPath);
     if (control !== undefined && control !== null && control.touched) {
       for (let errorType of this.errorTypes) {
         if (control.hasError(errorType)) {

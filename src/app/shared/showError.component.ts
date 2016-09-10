@@ -1,5 +1,5 @@
 import { Component, Host } from '@angular/core';
-import { NgForm } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 //Example usage: <show-error control="name" [errors]="['required']"></show-error>
 @Component({
@@ -20,7 +20,7 @@ export class ShowError {
   }
 
   get errorMessage(): string {
-    var control = this.ngForm.form.find(this.controlPath);
+    var control = this.ngForm.form.get(this.controlPath);
     if (control !== undefined && control !== null && control.touched) {
       for (let errorType of this.errorTypes) {
         if (control.hasError(errorType)) {
