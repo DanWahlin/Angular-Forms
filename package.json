@@ -30,11 +30,11 @@
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
-    "concurrently": "^2.0.0",
+    "concurrently": "^2.2.0",
     "lite-server": "^2.2.0",
-    "typescript": "1.8.10",
-    "typings": "^1.0.4",
-    "systemjs-builder": "^0.15.26",
-    "yargs": "^4.8.1"
+    "typescript": "2.0.3",
+    "typings": "^1.3.3",
+    "systemjs-builder": "^0.15.30",
+    "yargs": "^5.0.0"
   }
 }
