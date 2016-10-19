@@ -6,8 +6,6 @@
         "postinstall": "typings install",
         "tsc": "tsc",
         "tsc:w": "tsc --watch",
-        "bundle": "node bundle.js",
-        "bundle:prod": "node bundle.js --prod",
         "lite": "lite-server",
         "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
         "typings": "typings"
