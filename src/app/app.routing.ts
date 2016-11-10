@@ -7,8 +7,8 @@ import { StarterTemplateFormComponent } from './starterTemplateForm/starterTempl
 import { StarterReactiveFormComponent } from './starterReactiveForm/starterReactiveForm.component';
 
 const app_routes: Routes = [
-  { path: '', pathMatch:'full', redirectTo: '/starterForm' },
-  { path: 'starterform', component: StarterTemplateFormComponent    },
+  { path: '', pathMatch:'full', redirectTo: '/startertemplateform' },
+  { path: 'startertemplateform', component: StarterTemplateFormComponent    },
   { path: 'starterreactiveform', component: StarterReactiveFormComponent },
   { path: 'basicform',  component: BasicFormComponent },
   { path: 'templateform',  component: TemplateFormComponent },
