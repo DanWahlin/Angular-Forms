@@ -7,22 +7,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
     templateUrl: 'starterReactiveForm.component.html'
 })
 export class StarterReactiveFormComponent implements OnInit {
-
     customerForm: FormGroup;
     customer: any;
     message: string;
-
     constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit() { 
-      this.customer = {
-          firstName: 'Tina Reactive'
-      };
+        this.customer = {
+            firstName: 'Tina Reactive'
+        };
 
-      this.customerForm = this.formBuilder.group({
-        firstName: [this.customer.firstName, Validators.required]
-      });
-
+        this.customerForm = this.formBuilder.group({
+            firstName: [this.customer.firstName, Validators.required ]
+        });
     }
 
     onSubmit() {
