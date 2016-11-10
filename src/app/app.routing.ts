@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { BasicFormComponent } from './basicForm/basicForm.component';
 import { TemplateFormComponent } from './templateForm/templateForm.component';
 import { ReactiveFormComponent } from './reactiveForm/reactiveForm.component';
-import { StarterFormComponent } from './starterForm/starterForm.component';
+import { StarterTemplateFormComponent } from './starterTemplateForm/starterTemplateForm.component';
 import { StarterReactiveFormComponent } from './starterReactiveForm/starterReactiveForm.component';
 
 const app_routes: Routes = [
   { path: '', pathMatch:'full', redirectTo: '/starterForm' },
-  { path: 'starterform', component: StarterFormComponent    },
+  { path: 'starterform', component: StarterTemplateFormComponent    },
   { path: 'starterreactiveform', component: StarterReactiveFormComponent },
   { path: 'basicform',  component: BasicFormComponent },
   { path: 'templateform',  component: TemplateFormComponent },
@@ -18,7 +18,7 @@ const app_routes: Routes = [
 export const app_routing = {
   routes: RouterModule.forRoot(app_routes),
   components: [ 
-                StarterFormComponent, StarterReactiveFormComponent,
+                StarterTemplateFormComponent, StarterReactiveFormComponent,
                 BasicFormComponent, TemplateFormComponent, ReactiveFormComponent
               ]
 };

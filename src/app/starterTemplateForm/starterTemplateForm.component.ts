@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'starter-form',
-    templateUrl: 'starterForm.component.html'
+    selector: 'starter-template-form',
+    templateUrl: 'starterTemplateForm.component.html'
 })
-export class StarterFormComponent implements OnInit {
+export class StarterTemplateFormComponent implements OnInit {
     customer: any;
     message: string;
 
@@ -13,7 +13,7 @@ export class StarterFormComponent implements OnInit {
 
     ngOnInit() { 
         this.customer = {
-            firstName: 'Fred'
+            firstName: 'Fred Template'
         };
     }
 

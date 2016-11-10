@@ -16,7 +16,7 @@ export class StarterReactiveFormComponent implements OnInit {
 
     ngOnInit() { 
       this.customer = {
-          firstName: 'Tina'
+          firstName: 'Tina Reactive'
       };
 
       this.customerForm = this.formBuilder.group({
