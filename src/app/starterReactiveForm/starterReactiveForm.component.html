@@ -1,0 +1,12 @@
+<h1>Customer Edit</h1>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    First Name: <input type="text" class="form-control"
+                       formControlName="firstName"
+                       required />
+    <br />
+    <span *ngIf="customerForm.controls.firstName.invalid">First Name is required!</span>
+    <br />
+    <button class="btn btn-default" [disabled]="customerForm.invalid">"Submit</button>
+    <br /><br />
+    {{ message }}
+</form>
