@@ -8,7 +8,13 @@
     <br />
     <span *ngIf="!firstName.valid">First Name is required!</span>
     <br />
-    <button class="btn btn-default" [disabled]="!starterForm.valid">"Submit</button>
+    <button class="btn btn-default" [disabled]="!starterForm.valid">Submit</button>
     <br /><br />
     {{ message }}
+    <br />
+    Valid: {{ firstName.valid}}
+    <br />
+    Pristine: {{ firstName.pristine }}
+    <br />
+    Touched: {{ firstName.touched }}
 </form>
