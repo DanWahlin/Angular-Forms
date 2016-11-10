@@ -6,10 +6,10 @@ import { Hero } from '../shared/hero';
 
 @Component({
   moduleId: module.id,
-  selector: 'model-driven-form',
-  templateUrl: 'modelForm.component.html'
+  selector: 'reactive-driven-form',
+  templateUrl: 'reactiveForm.component.html'
 })
-export class ModelFormComponent implements OnInit {
+export class ReactiveFormComponent implements OnInit {
   heroForm: FormGroup;
   model: Hero;  
   powers: string[];
