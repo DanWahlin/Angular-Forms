@@ -1,7 +1,7 @@
 <div class="container">
     <div *ngIf="!submitted">
         <h1>Reactive Form</h1>
-        <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="heroForm" (ngSubmit)="onSubmit(heroForm)">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" formControlName="name" />
@@ -32,19 +32,19 @@
         <h2>You submitted the following:</h2>
         <div class="row">
             <div class="col-md-2">Name</div>
-            <div class="col-md-10 pull-left">{{ heroForm.controls.name.value }}</div>
+            <div class="col-md-10 pull-left">{{ submittedModel.name }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Alter Ego</div>
-            <div class="col-md-10 pull-left">{{ heroForm.controls.alterEgo.value }}</div>
+            <div class="col-md-10 pull-left">{{ submittedModel.alterEgo }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Hero Email</div>
-            <div class="col-md-10 pull-left">{{ heroForm.controls.email.value }}</div>
+            <div class="col-md-10 pull-left">{{ submittedModel.email }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Power</div>
-            <div class="col-md-10 pull-left">{{ heroForm.controls.power.value }}</div>
+            <div class="col-md-10 pull-left">{{ submittedModel.power }}</div>
         </div>
         <br />
         <button class="btn btn-default" (click)="submitted=false">Edit</button>

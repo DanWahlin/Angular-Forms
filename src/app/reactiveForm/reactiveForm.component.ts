@@ -11,7 +11,8 @@ import { Hero } from '../shared/hero';
 })
 export class ReactiveFormComponent implements OnInit {
   heroForm: FormGroup;
-  model: Hero;  
+  model: Hero; 
+  submittedModel: Hero; 
   powers: string[];
   submitted: boolean = false;
   
@@ -31,7 +32,8 @@ export class ReactiveFormComponent implements OnInit {
       });
   }
 
-  onSubmit()  {
+  onSubmit({ value, valid }: { value: Hero, valid: boolean }) {
     this.submitted = true;
+    this.submittedModel = value;
   }
 }
