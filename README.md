@@ -1,6 +1,6 @@
 # Angular/TypeScript Forms
 
-This code sample demonstrates how Angular 2 template-driven forms and 
+This code sample demonstrates how Angular template-driven forms and 
 reactive forms can be created and used.
 
 ## Running the Application
