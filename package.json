@@ -2,6 +2,10 @@
     "name": "angular2-forms",
     "author": "Dan Wahlin",
     "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/danwahlin/angular-forms"
+    },
     "scripts": {
         "tsc": "tsc",
         "tsc:w": "tsc --watch",
@@ -28,7 +32,6 @@
         "concurrently": "3.4.0",
         "lite-server": "2.3.0",
         "typescript": "2.2.1",
-        "@types/core-js": "0.9.35",
         "@types/node": "7.0.5"
     }
 }
