@@ -22,8 +22,8 @@ export class StarterReactiveFormComponent implements OnInit {
         });
     }
 
-    onSubmit() {
-        this.message = 'You typed: ' + this.customer.firstName;
+    onSubmit(form: FormGroup) {
+        this.message = 'You typed: ' + form.controls.firstName.value;
     }
 
 }

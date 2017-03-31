@@ -1,5 +1,5 @@
 <h1>Customer Edit</h1>
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)">
     First Name:
     <input type="text" class="form-control" formControlName="firstName" />
     <br />
