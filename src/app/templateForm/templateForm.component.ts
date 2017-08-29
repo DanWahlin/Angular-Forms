@@ -4,9 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../shared/hero';
 
 @Component({
-  moduleId: module.id,
   selector: 'template-driven-form',
-  templateUrl: 'templateForm.component.html'
+  templateUrl: './templateForm.component.html'
 })
 export class TemplateFormComponent implements OnInit {
   model: Hero;  

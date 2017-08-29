@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-    moduleId: module.id,
     selector: 'starter-reactive-form',
-    templateUrl: 'starterReactiveForm.component.html'
+    templateUrl: './starterReactiveForm.component.html'
 })
 export class StarterReactiveFormComponent implements OnInit {
     customerForm: FormGroup;

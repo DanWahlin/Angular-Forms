@@ -5,9 +5,8 @@ import { ValidationService } from '../shared/validation.service';
 import { Hero } from '../shared/hero';
 
 @Component({
-  moduleId: module.id,
   selector: 'reactive-driven-form',
-  templateUrl: 'reactiveForm.component.html'
+  templateUrl: './reactiveForm.component.html'
 })
 export class ReactiveFormComponent implements OnInit {
   heroForm: FormGroup;
