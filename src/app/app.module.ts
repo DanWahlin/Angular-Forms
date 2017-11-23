@@ -4,10 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RequiredTextboxComponent } from './controlValueAccessor/required-textbox.component';
+import { PhoneTextboxComponent } from './controlValueAccessor/phone-textbox.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule ],
-  declarations: [ AppComponent, AppRoutingModule.components ],
+  declarations: [ AppComponent, AppRoutingModule.components, RequiredTextboxComponent, PhoneTextboxComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,0 +1,24 @@
+<h1>Customer Edit</h1>
+<form [formGroup]="customerForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label>Name</label>
+        <required-textbox formControlName="name"></required-textbox>
+        <div class="alert alert-danger" *ngIf="customerForm.controls.name.invalid">First Name is required!</div>
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <phone-textbox formControlName="phone"></phone-textbox>
+        <div class="alert alert-danger" *ngIf="customerForm.controls.phone.errors && customerForm.controls.phone.errors.required">Enter a phone number!</div>
+        <div class="alert alert-danger" *ngIf="customerForm.controls.phone.errors && customerForm.controls.phone.errors.pattern">Enter a valid phone number!</div>
+    </div>
+    <br />
+    <button class="btn btn-default" [disabled]="customerForm.invalid">Submit</button>
+    <br /><br />
+    {{ message }}
+    <br /><br />
+    Valid: {{ customerForm.valid}}
+    <br />
+    Pristine: {{ customerForm.pristine }}
+    <br />
+    Touched: {{ customerForm.touched }}
+</form>

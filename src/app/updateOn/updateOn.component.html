@@ -1,20 +1,115 @@
-<h1>Customer Edit</h1>
-<form #starterForm="ngForm" (ngSubmit)="onSubmit()">
-    First Name: <input type="text" class="form-control"
-                       name="firstName" 
-                       #firstName="ngModel"
-                       [(ngModel)]="customer.firstName"
-                       required />
+<div class="container">
+    <!-- Template Form -->
+    <div *ngIf="!templateSubmitted">
+      <h1>Using updateOn with Template Forms</h1>
+      <!--Can add this if you want nothing to update until the form is submitted: [ngModelOptions]="{updateOn: 'submit'} -->
+      <form (ngSubmit)="submit()" #heroForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name (updateOn applied)</label>
+          <!-- for updateOn you can pass 'blue' or 'submit' -->
+          <input type="text" class="form-control" name="name" #name="ngModel" 
+                [(ngModel)]="model.name" 
+                [ngModelOptions]="{updateOn: 'blur'}" required> 
+          <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
+        </div>
+        <div class="form-group">
+          <label for="alterEgo">Alter Ego</label>
+          <!-- 
+            Example of what things look like without [(ngModel)]="model.alterEgo" 
+            
+            <input type="text" name="alterEgo" [ngModel]="model.alterEgo" (ngModelChange)="model.alterEgo=$event" required>
+          -->
+          <input type="text" class="form-control" name="alterEgo" #alterEgo="ngModel" 
+                [(ngModel)]="model.alterEgo" required> 
+          <div class="alert alert-danger" [hidden]="alterEgo.valid">Alter Ego is required</div>
+        </div>
+        <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control" name="power" 
+                  #power="ngModel" [(ngModel)]="model.power" required>
+            <option *ngFor="let p of powers" [value]="p">{{ p }}</option>
+          </select>
+          <div class="alert alert-danger" [hidden]="power.valid">Power is required</div>
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!heroForm.valid">Submit</button>
+        <br /><br />
+        <pre>
+          {{ heroForm.value | json }}
+        </pre>
+      </form>
+    </div>
+    <div *ngIf="templateSubmitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-md-2">Name</div>
+        <div class="col-md-10 pull-left">{{ model.name }}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Alter Ego</div>
+        <div class="col-md-10 pull-left">{{ model.alterEgo }}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Power</div>
+        <div class="col-md-10 pull-left">{{ model.power }}</div>
+      </div>
+      <br />
+      <button class="btn btn-default" (click)="templateSubmitted=false">Edit</button>
+    </div>
     <br />
-    <span *ngIf="!firstName.valid">First Name is required!</span>
-    <br />
-    <button class="btn btn-default" [disabled]="!starterForm.valid">Submit</button>
-    <br /><br />
-    {{ message }}
-    <br />
-    Valid: {{ firstName.valid}}
-    <br />
-    Pristine: {{ firstName.pristine }}
-    <br />
-    Touched: {{ firstName.touched }}
-</form>
+
+    <!-- Reactive Form -->
+    <div *ngIf="!reactiveSubmitted">
+      <h1>Using updateOn with Reactive Forms</h1>
+      <form [formGroup]="heroForm" (ngSubmit)="reactiveSubmit()">
+          <div class="form-group">
+              <label for="name">Name (updateOn applied)</label>
+              <input type="text" class="form-control" formControlName="name" /> 
+              <div class="alert alert-danger" [hidden]="heroForm.controls.name.valid">Name is required</div>
+          </div>
+          <div class="form-group">
+              <label for="alterEgo">Alter Ego</label>
+              <input type="text" class="form-control" formControlName="alterEgo" /> 
+              <div class="alert alert-danger" [hidden]="heroForm.controls.alterEgo.valid">Alter Ego is required</div>
+          </div>
+          <div class="form-group">
+              <label for="email">Hero Email</label>
+              <input type="email" class="form-control" formControlName="email" /> {{ heroForm.controls.email.value }}
+              <div class="alert alert-danger" [hidden]="heroForm.controls.email.valid">Email is required and must be a valid email pattern</div>
+          </div>
+          <div class="form-group">
+              <label for="power">Hero Power</label>
+              <select class="form-control" formControlName="power">
+                <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              </select>
+              <div class="alert alert-danger" [hidden]="heroForm.controls.power.valid">Power is required</div>
+          </div>
+          <button type="submit" class="btn btn-default" [disabled]="!heroForm.valid">Submit</button> 
+          <br /><br />
+          <pre>
+            {{ heroForm.value | json }}
+          </pre>
+      </form>  
+  </div>
+                              
+  <div *ngIf="reactiveSubmitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+          <div class="col-md-2">Name</div>
+          <div class="col-md-10 pull-left">{{ submittedModel.name }}</div>
+      </div>
+      <div class="row">
+          <div class="col-md-2">Alter Ego</div>
+          <div class="col-md-10 pull-left">{{ submittedModel.alterEgo }}</div>
+      </div>
+      <div class="row">
+          <div class="col-md-2">Hero Email</div>
+          <div class="col-md-10 pull-left">{{ submittedModel.email }}</div>
+      </div>
+      <div class="row">
+          <div class="col-md-2">Power</div>
+          <div class="col-md-10 pull-left">{{ submittedModel.power }}</div>
+      </div>
+      <br />
+      <button class="btn btn-default" (click)="reactiveSubmitted=false">Edit</button>
+  </div>  
+  </div>
