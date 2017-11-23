@@ -1,0 +1,20 @@
+<h1>Customer Edit</h1>
+<form #starterForm="ngForm" (ngSubmit)="onSubmit()">
+    First Name: <input type="text" class="form-control"
+                       name="firstName" 
+                       #firstName="ngModel"
+                       [(ngModel)]="customer.firstName"
+                       required />
+    <br />
+    <span *ngIf="!firstName.valid">First Name is required!</span>
+    <br />
+    <button class="btn btn-default" [disabled]="!starterForm.valid">Submit</button>
+    <br /><br />
+    {{ message }}
+    <br />
+    Valid: {{ firstName.valid}}
+    <br />
+    Pristine: {{ firstName.pristine }}
+    <br />
+    Touched: {{ firstName.touched }}
+</form>
