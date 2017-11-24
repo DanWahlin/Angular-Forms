@@ -42,7 +42,7 @@ export class PhoneTextboxComponent implements ControlValueAccessor {
 
         return {
           required: requiredErrors,
-          pattern: patternErrors
+          phone: patternErrors
         };
     }
 }

@@ -8,8 +8,8 @@
     <div class="form-group">
         <label>Phone</label>
         <phone-textbox formControlName="phone"></phone-textbox>
-        <div class="alert alert-danger" *ngIf="customerForm.controls.phone.errors && customerForm.controls.phone.errors.required">Enter a phone number!</div>
-        <div class="alert alert-danger" *ngIf="customerForm.controls.phone.errors && customerForm.controls.phone.errors.pattern">Enter a valid phone number!</div>
+        <div class="alert alert-danger" *ngIf="customerForm.controls.phone.errors?.required">Enter a phone number!</div>
+        <div class="alert alert-danger" *ngIf="customerForm.controls.phone.errors?.phone">Enter a valid phone number!</div>
     </div>
     <br />
     <button class="btn btn-default" [disabled]="customerForm.invalid">Submit</button>
