@@ -27,7 +27,7 @@ export class UpdateOnComponent implements OnInit {
         //https://github.com/angular/angular/issues/19163
         // this.heroForm = this.formBuilder.group({
         //     //Can individually add updateOn to FormControls
-        //     //name:     [this.model.name, { validators: Validators.required, updateOn: 'blue' }],
+        //     //name:     [this.model.name, { validators: Validators.required, updateOn: 'blur' }],
         //     name:     [this.model.name, Validators.required ],
         //     alterEgo: [this.model.alterEgo, Validators.required],
         //     email:    [this.model.email, [Validators.required, ValidationService.emailValidator]],
@@ -36,7 +36,7 @@ export class UpdateOnComponent implements OnInit {
 
         this.heroForm = new FormGroup({
             //Can individually add updateOn to FormControls
-            //name:   new FormControl(this.model.name, { validators: Validators.required, updateOn: 'blue' }),
+            //name:   new FormControl(this.model.name, { validators: Validators.required, updateOn: 'blur' }),
             name:     new FormControl(this.model.name, Validators.required ),
             alterEgo: new FormControl(this.model.alterEgo, Validators.required),
             email:    new FormControl(this.model.email, { validators: [Validators.required, ValidationService.emailValidator] }),
