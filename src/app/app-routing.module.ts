@@ -8,6 +8,7 @@ import { StarterTemplateFormComponent } from './starterTemplateForm/starterTempl
 import { StarterReactiveFormComponent } from './starterReactiveForm/starterReactiveForm.component';
 import { UpdateOnComponent } from './updateOn/updateOn.component';
 import { ControlValueAccessorComponent } from './controlValueAccessor/controlValueAccessor.component';
+import { ReactiveDynamicFormComponent } from './reactiveDynamicForm/reactive-dynamic-form.component';
 
 const routes: Routes = [
   { path: '', pathMatch:'full', redirectTo: '/startertemplateform' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'templateform',  component: TemplateFormComponent },
   { path: 'reactiveform',     component: ReactiveFormComponent  },
   { path: 'updateon', component: UpdateOnComponent },
-  { path: 'controlvalueaccessor', component: ControlValueAccessorComponent }
+  { path: 'controlvalueaccessor', component: ControlValueAccessorComponent },
+  { path: 'reactivedynamicform', component: ReactiveDynamicFormComponent }
 ];
 
 @NgModule({
@@ -28,7 +30,7 @@ export class AppRoutingModule {
   static components = [ 
     StarterTemplateFormComponent, StarterReactiveFormComponent,
     BasicFormComponent, TemplateFormComponent, ReactiveFormComponent,
-    ControlValueAccessorComponent, UpdateOnComponent
+    ControlValueAccessorComponent, UpdateOnComponent, ReactiveDynamicFormComponent
   ];
 }
 

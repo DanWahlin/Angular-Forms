@@ -1,5 +1,4 @@
-<div class="container">
- 
+
   <nav class="navbar navbar-default">
     <div class="navbar-header">
       <a href="#/"><img src="assets/angular.png" class="logo" /></a>
@@ -21,6 +20,9 @@
         <a routerLink="/reactiveform">Reactive Form</a>
       </li>
       <li routerLinkActive="active">
+        <a routerLink="/reactivedynamicform">Reactive Dynamic Form</a>
+      </li>
+      <li routerLinkActive="active">
         <a routerLink="/controlvalueaccessor">Custom Components</a>
       </li>
       <li routerLinkActive="active">
@@ -29,6 +31,7 @@
     </ul>
   </nav>
   
-  <router-outlet></router-outlet>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
   
-</div>

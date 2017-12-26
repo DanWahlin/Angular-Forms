@@ -1,0 +1,24 @@
+<div *ngIf="!submitted">
+    <form [formGroup]="heroForm" (ngSubmit)="submit()">
+        <div *ngFor="let prop of formModelProps">
+            <div class="form-group" *ngIf="prop !== 'id'">
+                <label for="name">{{ prop | cameltotitle }}</label>
+                <input type="text" class="form-control" [formControlName]="prop" />
+                <div class="alert alert-danger" [hidden]="heroForm.get(prop).valid">{{ prop }} is required</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!heroForm.valid">Submit</button> 
+    </form>
+</div>
+
+<div *ngIf="submitted">
+    <h2>You submitted the following:</h2>
+    <div *ngFor="let prop of formModelProps">
+        <div class="row">
+            <div class="col-md-2">{{ prop | cameltotitle }}</div>
+            <div class="col-md-10 pull-left">{{ heroForm.get(prop).value }}</div>
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-default" (click)="submitted=false">Edit</button>
+</div>
